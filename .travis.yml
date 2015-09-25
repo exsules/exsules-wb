@@ -2,12 +2,29 @@
 language: node_js
 node_js:
   - "0.12"
+  - "iojs"
 
 sudo: false
 
+env:
+  - EMBER_VERSION=default
+  - EMBER_VERSION=release
+  - EMBER_VERSION=beta
+  - EMBER_VERSION=canary
+
+matrix:
+  allow_failuires:
+    - env: EMBER_VERSION=release
+    - env: EMBER_VERSION=beta
+    - env: EMBER_VERSION=canary
+
+  fast_finish: true
+
 cache:
+  branch: md5deep
   directories:
     - node_modules
+    - bower_components
 
 before_install:
   - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
@@ -20,4 +37,4 @@ install:
   - bower install
 
 script:
-  - npm test
+  - ember try $EMBER_VERSION
