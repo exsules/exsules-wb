@@ -13,7 +13,7 @@ env:
   - EMBER_VERSION=canary
 
 matrix:
-  allow_failuires:
+  allow_failures:
     - env: EMBER_VERSION=release
     - env: EMBER_VERSION=beta
     - env: EMBER_VERSION=canary
