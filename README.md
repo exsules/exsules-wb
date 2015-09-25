@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/exsules/exsules-web.svg?branch=master)](https://travis-ci.org/exsules/exsules-web)
+
 # Exsules
 
 This README outlines the details of collaborating on this Ember application.
