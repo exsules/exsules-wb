@@ -1,0 +1,38 @@
+<section class="panel">
+  <div class="cover-photo">
+    <div class="timeline-img">
+      <img src="https://dev-social.s3.amazonaws.com/background_medium.jpg">
+    </div>
+    <div class="name">
+      <h2>{{#link-to 'profile' model.handle}}{{model.full-name}}{{/link-to}}</h2>
+      {{#if user.can_request_friend}}
+        {{#if isWorking}}
+          <button class="btn btn-default btn-xs" type="submit" disabled>
+            <span class="loading-indicator--white"><i></i><i></i><i></i></span> Sending friend request...
+          </button>
+        {{else}}
+          <button class="btn btn-default btn-xs" {{action "friendRequest"}}><i class="ti-plus"></i> Follow</button>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="profile-thumb">
+      <img src="{{model.photo}}">
+    </div>
+
+    <div class="profile-nav">
+      <ul>
+        <li>{{#link-to 'profile.about' model.handle}}About{{/link-to}}</li>
+        <li>{{#link-to 'profile.posts' model.handle}}Posts{{/link-to}}</li>
+        <li>{{#link-to 'profile.photos' model.handle}}Photos{{/link-to}}</li>
+        <li>{{#link-to 'profile.videos' model.handle}}Videos{{/link-to}}</li>
+        <li>{{#link-to 'profile.friends' model.handle}}Friends{{/link-to}}</li>
+        <li>{{#link-to 'profile.likes' model.handle}}Likes{{/link-to}}</li>
+      </ul>
+    </div>
+  </div>
+  {{outlet}}
+</section>
+

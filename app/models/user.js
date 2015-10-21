@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 import { validator, buildValidations } from 'ember-cp-validations';
 
-const { attr } = DS;
+const { attr, belongsTo } = DS;
 
 var Validations = buildValidations({
   email: [
@@ -16,5 +16,10 @@ var Validations = buildValidations({
 
 export default DS.Model.extend(Validations, {
   email: attr('string'),
-  password: attr('string')
+  username: attr('string'),
+  initial_setup: attr('boolean'),
+  language: attr('string'),
+  disable_mail: attr('boolean'),
+
+  profile: belongsTo('profile')
 });

@@ -12,10 +12,10 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    authenticate() {
+    authenticateWithOAuth2() {
       this.set('isWorking', true);
       let data = this.getProperties('identification', 'password');
-      this.get('session').authenticate('authenticator:devise', data).catch((reason) => {
+      this.get('session').authenticate('authenticator:oauth2', data).catch((reason) => {
         this.set('errorMessage', reason.error);
       });
     }

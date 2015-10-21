@@ -8,12 +8,12 @@
 
     <div class="col-md-6">
       <div class="content">
-        <form class="m-t-15">
+        <form class="m-t-15" {{action 'authenticateWithOAuth2' on='submit'}}>
           <div class="form-group">
             {{text-field type="email" value=identification placeholderKey="user.email.title" id="email" data-parsley-trigger="change" required="required" autofocus="true"}}
           </div>
           <div class="form-group">
-            {{text-field value=password placeholderKey="user.password.title" id="password" capslockOn=capslockOn data-parsley-trigger="change" data-parsley-minlength="6" required="required"}}
+            {{password-field value=password placeholderKey="user.password.title" id="password" capslockOn=capslockOn data-parsley-trigger="change" data-parsley-minlength="6" required="required"}}
           </div>
           <button class="btn btn-default btn-block" disabled={{isWorking}}>{{t "login"}}</button>
         </form>

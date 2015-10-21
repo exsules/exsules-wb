@@ -1,0 +1,40 @@
+{{#each sortedPosts as |post|}}
+  <div class="col-md-4 posts-column">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="author-info">
+          <div class="author-img">
+            <img src="{{post.photo}}">
+          </div>
+          <div class="author-name">
+            <strong>{{#link-to 'user' post.username}}{{post.author}}{{/link-to}}</strong>
+          </div>
+          <div class="post-date">
+            <small><span title="{{post.createdAt}}">{{moment-from-now post.createdAt interval=1000}}</span></small>
+          </div>
+        </div>
+        <hr>
+        <div class="post-message">
+          <p>{{post.text}}</p>
+        </div>
+        {{post.openGraphCache.length}}
+        {{#if post.openGraphCache}}
+          <div class="open-graph">
+            <div class="title">
+              <a href="{{post.openGraphCache.url}}" target="_blank">{{post.openGraphCache.title}}</a>
+            </div>
+            <div class="url">
+              <a href="{{post.openGraphCache.url}}" target="_blank">{{post.openGraphCache.url_stripped}}</a>
+            </div>
+            <div class="description">{{post.openGraphCache.description}}</div>
+          </div>
+        {{/if}}
+        <div class="clearfix"></div>
+        {{post.likesCount}}<button title="Like this post" class="btn btn-small like" {{action "likePost"}}><i class="ti-heart"></i></button>
+        <button title="Share this post" class="btn btn-small"><i class="ti-share"></i></button>
+        <hr>
+        {{textarea class="form-control" autoresize="true" placeholder="Add a comment..."}}
+      </div>
+    </div>
+  </div>
+{{/each}}

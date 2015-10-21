@@ -23,7 +23,21 @@ module.exports = function(environment) {
       defaultLocale: 'en'
     },
 
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://exsules.com wss://ws.pusherapp.com",
+      'script-src': "'self'",
+      'style-src':  "'self' 'unsafe-inline'",
+      'font-src': "'self' //d33h4kn6035392.cloudfront.net/",
+      'img-src': "'self' //d33h4kn6035392.cloudfront.net/ //dev-social.s3.amazonaws.com/"
+    },
+
     apiEndpoint: 'https://api.exsules.com',
+
+    'ember-simple-auth': {
+      base: {
+        store: 'session-store:local-storage'
+      }
+    }
   };
 
   if (environment === 'development') {
@@ -33,6 +47,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiEndpoint = 'http://localhost:3000';
+    ENV.contentSecurityPolicy['connect-src'] += " http://localhost:3000 ws://127.0.0.1:* ws://ws.pusherapp.com";
+    ENV.contentSecurityPolicy['img-src'] += " http://localhost:3000";
   }
 
   if (environment === 'test') {

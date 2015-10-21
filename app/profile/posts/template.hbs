@@ -1,0 +1,5 @@
+{{#if model.posts.isSettled}}
+  {{posts-list post=model.posts}}
+{{else}}
+  {{loading-indicator}}
+{{/if}}

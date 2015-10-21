@@ -16,15 +16,14 @@
           <ul class="nav navbar-nav pull-right">
             <li>{{#link-to 'index'}}Home{{/link-to}}</li>
             <li><a href="#"><i class="ti-email"></i></a></li>
-            {{notifications-list data=session.currentUser.notifications}}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="my-account">
                 <img src="{{session.currentUser.photo.tiny}}">
-                <span class="username">{{session.currentUser.fullName}}</span></a>
+                <span class="username">{{currentUser.data.profile.full-name}}</span></a>
               <ul class="dropdown-menu my-account-dropdown" role="menu">
-                <li>{{#link-to 'user' session.currentUser.username}}Profile{{/link-to}}</li>
+                <li>{{#link-to 'profile' currentUser.data.username}}Profile{{/link-to}}</li>
                 <li>{{#link-to 'settings'}}Settings{{/link-to}}</li>
-                <li><a href="#" {{action "invalidateSession"}}>Logout</a></li>
+                <li><a href="#" {{action "logout"}}>Logout</a></li>
               </ul>
             </li>
           </ul>
