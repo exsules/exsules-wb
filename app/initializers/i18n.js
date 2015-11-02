@@ -4,6 +4,6 @@ export function initialize(_, app) {
 
 export default {
   name: 'i18n',
+  after: 'ember-i18n',
   initialize: initialize,
-  after: 'ember-i18n'
 };
