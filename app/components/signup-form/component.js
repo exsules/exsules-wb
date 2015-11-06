@@ -24,9 +24,9 @@ export default Ember.Component.extend({
         this.set('responseMessage', response.user.message);
         this.set('isWorking', false);
       }), (xhr, status, error) => {
-        console.log("reg err");
+        console.log(`xhr ${xhr} status ${status} error ${error}`);
         this.set('isWorking', false);
-      })
+      });
     }
   }
 });

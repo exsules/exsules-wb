@@ -9,6 +9,6 @@ export default DS.JSONAPISerializer.extend({
   },
 
   keyForRelationship: function(rawKey) {
-    return underscore(rawKey)
+    return underscore(rawKey);
   }
 });
